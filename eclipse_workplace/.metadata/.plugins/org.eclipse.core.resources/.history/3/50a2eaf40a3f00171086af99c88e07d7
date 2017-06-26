@@ -1,0 +1,74 @@
+import java.time.Duration;
+import java.time.Instant;
+
+public class SearchingWords {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String InputString = "welcome to new York to New york";
+		String SearchString = "New";
+		String ReplaceString = "shafeeq";
+		SearchingMethod Investigation = new SearchingMethod();
+		Investigation.Find(InputString,SearchString,ReplaceString);
+	}
+
+}
+
+class SearchingMethod
+{
+	public void Find (String Input, String Search,String Replace)
+	{
+		int SearchPosition = 0;
+		int WordCount = 0;
+		String WordPosition = "";
+		int SavedPosition = 0;
+		int flag = 0;
+		int flag2 = 0;
+		String ResultString = "";
+		for (int i=0;i<Input.length();i++)
+		{
+			System.out.print(" ");
+			if (flag2 == 1)
+					{
+			i = SavedPosition;
+			flag2 = 0;
+			}
+			if (SearchPosition==0)
+			{
+				SavedPosition = i;
+				if (flag == 0)
+				{
+					ResultString = ResultString + Input.charAt(i);
+				}
+				else
+				{
+					flag = 0;
+					ResultString = ResultString.substring(0,ResultString.length()-1);
+					ResultString = ResultString + Replace ;
+					flag2 = 1;
+				}
+			}
+			while (Input.charAt(i)==Search.charAt(SearchPosition))
+			{
+				SearchPosition ++;
+				if( SearchPosition == (Search.length())) 
+				{
+					if (WordCount>0)
+						WordPosition = WordPosition + ",";
+					SearchPosition = 0;
+					WordCount ++;
+					flag = 1;
+					WordPosition = WordPosition + SavedPosition;
+
+					break;
+
+				}
+			}
+		} 
+		System.out.println("Word Count: "+WordCount);
+		System.out.println("Word Positions: "+WordPosition);
+		System.out.println("Result phrase: "+ResultString);
+
+	}
+}

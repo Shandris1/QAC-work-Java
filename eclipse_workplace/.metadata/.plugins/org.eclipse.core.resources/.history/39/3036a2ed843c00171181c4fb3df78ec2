@@ -1,0 +1,35 @@
+
+public class UnitedKingdom {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int counter = 0;
+		int flag = 0;
+		String currentword = "";
+		String N="i am going to london";
+		for (int a=N.length();a>0;a--)
+		{
+			if (N.substring(a-1, a).equals(" "))
+				{
+				//System.out.println("");
+				System.out.println(currentword);
+				currentword = "";
+				counter++;
+				if (flag == 0)
+				{
+					counter++;
+					flag =1;
+				}
+				//System.out.println(counter);
+				}
+			else
+				currentword =   N.substring(a-1, a) + currentword ;
+				
+			
+			
+		}
+		System.out.println(currentword);
+		//System.out.println(counter);	
+	}
+	
+}

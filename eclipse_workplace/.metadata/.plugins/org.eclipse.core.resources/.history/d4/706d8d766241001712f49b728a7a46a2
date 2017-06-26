@@ -1,0 +1,31 @@
+import java.awt.*;
+import java.awt.event.ActionListener;
+public class Window {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Frame Win=new Frame();
+TextField Ti=new TextField();
+Button Bi= new Button("click");
+Event2 E=new Event2(Ti);
+Bi.addActionListener(E);
+Win.add(Ti,BorderLayout.NORTH);
+Win.add(Bi,BorderLayout.CENTER);
+Win.setSize(300,500);
+Win.setVisible(true);
+	}
+
+}
+class Event2 implements ActionListener
+{
+	TextField X;
+	public Event2(TextField T)
+	{
+		X=T;
+	}
+	public void actionPerformed(ActionEvent T)
+	{
+		X.setText("hello");
+	}
+	
+}
